@@ -33,6 +33,7 @@
       }
       .modal.show {
         display: block;
+        z-index: 100;
       }
       .modal_body {
         position: absolute;
@@ -60,6 +61,12 @@
       }
       .modal2.show {
         display: block;
+        z-index: 100;
+      }
+      #modal_buttons {
+        width: 100vw;
+        display: flex;
+        flex-direction: row-reverse;
       }
       #login {
         margin: 1em;
@@ -90,13 +97,11 @@
       }
       #loginbtn {
         height: 3em;
-        width: 17em;
         background-color: #7f3811;
         border: 0.1em solid rgb(110, 107, 107);
         border-radius: 1em;
         color: #e8d3bb;
         width: 17em;
-        margin: 0;
         position: absolute;
         left: 33%;
         top: 25%;
@@ -157,14 +162,96 @@
       }
       #relative_body2 {
         position: relative;
-        margin-top: 30%;
+        margin-top: 20%;
+        /* max-width: 10vw; */
       }
       /*회원가입*/
       #wrap2 {
-        margin: -45vh 20em 0 30em;
+        margin: 0 20em 10vh 30em;
         /* margin-top: 50vh; */
         width: 30vw;
         position: absolute;
+        bottom: 35vh;
+        left: 50%;
+        transform: translateX(-150%);
+        max-width: 30vw;
+      }
+      #joinMwrap{
+        background-color: #f7faec;
+        width: 50vw;
+        height: 65em;
+        text-align: center;
+        margin: 3em 0;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border:3px solid  #7f3811;
+        border-radius: 1em;
+      }
+      #logolettering{
+        font-family: "Sacramento", cursive;
+        color: #e48c32;
+        font-size: 3em;
+        margin: 2vh 2vw 0 2vw;
+      }
+      .left{
+        margin-top: 1em;
+        text-align: left;
+        margin-left: 3vw;
+        margin-bottom: 3vh;
+        color:  #7f3811;
+        font-size: 18px;
+        font-weight: 900;
+      }
+      #wrap_mini {
+    display: flex;
+    width: 50vw;
+    flex-wrap: wrap;
+}
+      .agreement{
+        width: 2em;
+        margin: 1em;
+        margin-left: 3em;
+      }
+      .agreeQ{
+        /* width: 10em; */
+        margin-top: 1em;
+      }
+      #qualify{
+        font-size: 15px;
+        color: #e48c32;
+        
+      }
+      #RptChkBtn{
+        height: 2em;
+        width: 7em;
+        background-color: #7f3811;
+        border: 0.1em solid rgb(110, 107, 107);
+        border-radius: 1em;
+        color: #e8d3bb;
+      }
+      #addr{
+        margin-left: 3em;
+      }
+      #addrAll{
+        margin-left: 3em;
+        width: 18em;
+      }
+      #confirmBtn {
+        height: 3em;
+        background-color: #e48c32;
+        border: 0.1em solid rgb(110, 107, 107);
+        margin: 1em 2em;
+        border-radius: 1em;
+        color: #7f3811;
+        width: 17em;
+        font-family: "Sacramento", cursive;
+        font-size: 1em;
+        font-weight: 900;
+      }
+      h1{text-align: center;
+        transform: translateX(-3%);}
+      h2{
+        color: #e48c32;
       }
     </style>
   </head>
@@ -186,7 +273,7 @@
             type="text"
             placeholder="비밀번호 입력"
           /><br />
-          <div id="wrap_mini">
+          <div >
             <div id="saveId"><input type="checkbox" /> 아이디 저장</div>
             <div id="findPwd"><a href="#">비밀번호 찾기</a></div>
             <div id="findId"><a href="#">아이디 찾기</a></div>
@@ -202,18 +289,18 @@
     </div>
 
     <!--회원가입 모달창-->
-    <div class="modal2">
-      <div id="relative_body2">
+    <!-- <div class="modal2">
+      <div id="relative_body2" style="height: 70vh">
         <div class="modal_body">회원가입</div>
         <div id="wrap2">
           <div>약관동의</div>
-          <div>
-            <input type="radio" />이용약관 동의 (필수항목)
-            <input type="radio" />개인정보 수집 및 이용 동의 (필수항목)
-            <input type="radio" />환불약관 동의 (필수항목)
-            <input type="radio" />마케팅 활용/수신 동의 (선택)
-            <input type="radio" />문자메시지(SMS) 및 앱/푸시 알림
-            <input type="radio" />이메일
+          <div >
+            <input class="agreement" type="radio" />이용약관 동의 (필수항목)
+            <input class="agreement" type="radio" />개인정보 수집 및 이용 동의 (필수항목)
+            <input class="agreement" type="radio" />환불약관 동의 (필수항목)
+            <input class="agreement" type="radio" />마케팅 활용/수신 동의 (선택)
+            <input class="agreement" type="radio" />문자메시지(SMS) 및 앱/푸시 알림
+            <input  class="agreement" type="radio" />이메일
           </div>
           <div>필수정보 입력</div>
           <div>
@@ -246,10 +333,78 @@
           </div>
         </div>
       </div>
+    </div> -->
+<!--메인 화면, 회원가입-->
+    <div id="modal_buttons">
+      <button class="btn_open_popup1" id="login">로그인</button>
+      <!-- <button class="btn_open_popup2" id="joinMember">회원가입</button> -->
     </div>
 
-    <button class="btn_open_popup1" id="login">로그인</button>
-    <button class="btn_open_popup2" id="joinMember">회원가입</button>
+
+    <div id="joinMwrap">
+      <div>
+        <div id="logolettering">Forget-me-not and Cinnamons
+        </div>
+        <div class="left"><h1>회원가입</h1></div>
+        <div id=>
+          <div class="left"><h2>약관동의</h2></div>
+          <div id="wrap_mini">
+            <div> <input type="radio" class="agreement" />이용약관 동의 (필수항목)</div>
+            <div><input type="radio" class="agreement" />개인정보 수집 및 이용 동의 (필수항목)</div>
+            <div><input type="radio" class="agreement" />환불약관 동의 (필수항목)</div>
+            <div><input type="radio" class="agreement" />마케팅 활용/수신 동의 (선택)</div>
+            <div><input type="radio" class="agreement" />문자메시지(SMS) 및 앱/푸시 알림</div>
+            <div><input type="radio" class="agreement" />이메일</div>
+          </div>
+          <div class="left"><h2>필수정보 입력</h2></div>
+          <div class="left" id="wrap_mini2">
+            <div class="agreeQ" id="name">이름 <input type="text" /></div>
+            <div class="agreeQ">이메일 <input type="text" />@<input type="text" /></div>
+              <div class="agreeQ">
+                아이디
+                <input type="text" placeholder="영문,숫자 4~12자로 입력" /> <button
+                  type="button" id="RptChkBtn"
+                >
+                  중복확인
+                </button>
+              </div>
+                <div  class="agreeQ">비밀번호 <input
+                       type="text"
+                      placeholder="아이디 입력"
+                                   />
+                </div>
+              <div  class="agreeQ" id="qualify">영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리</div><!--비밀번호 input focus 되면 색바꾸기-->
+              <div class="agreeQ">
+                비밀번호 확인
+                <input
+                  type="text"
+                  placeholder="비밀번호 입력"
+                />
+              </div>
+              <div class="agreeQ">휴대폰번호 <input type="text" /></div> 
+            </div>
+          </div>
+        </div>
+        <div class="left"><h2>부가정보 입력 (선택)</h2></div>
+        <div class="left" id="wrap_mini2">
+          <div class="agreeQ" id="dob">생년월일 <input type="text" placeholder="년" /> <input type="text" placeholder="월"/> 
+            <input type="text" placeholder="일"/>
+          </div>
+          <div class="agreeQ">주소 <input type="text" placeholder="우편번호" /> <button
+                  type="button" id="RptChkBtn">
+            주소검색
+            </button>
+          </div>
+          <div class="agreeQ"><input type="text" id="addr" placeholder="주소" /></div>
+          <div class="agreeQ"><input type="text" id="addrAll" placeholder="상세주소"  /></div>
+          
+        </div>
+        <div class="agreeQ"> <button
+                type="button" id="confirmBtn">
+          Submit
+          </button>
+      </div>
+    </div>
   </body>
   <script>
     const body = document.querySelector("body");
