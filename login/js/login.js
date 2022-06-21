@@ -1,8 +1,3 @@
-window.addEventListener("DOMContentLoaded", (e) => {
-  document.getElementById("id_input").innerHTML = "";
-  document.getElementById("pwd_input").innerHTML = "";
-});
-
 const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const modal2 = document.querySelector(".modal2");
@@ -15,15 +10,26 @@ const checkBox = document.getElementById("checkBox");
 
 function clearIdPwd() {
   id_input.value = ""; //아이디 비워주기
-  id_input.innerHTML == id_input.value;
+  id_input.innerHTML = id_input.value;
   pwd_input.value = ""; //비밀번호 비워주기
-  pwd_input.innerHTML == pwd_input.value;
+  pwd_input.innerHTML = pwd_input.value;
+}
+function clearPwd() {
+  pwd_input.value = ""; //비밀번호 비워주기
+  pwd_input.innerHTML = pwd_input.value;
 }
 
 //로그인 버트 모달창 띄우기
 btn_open_popup1.addEventListener("click", () => {
   modal.classList.toggle("show"); //false로 만들어주기
-  clearIdPwd();
+  //매번 모달창 띄울때마다 아이디 비번 자리 비워주기
+  clearPwd();
+  if (checkBox.checked == true) {
+    //아이디저장이 체크돼있다면
+  } else {
+    clearIdPwd();
+  }
+
   if (loginbtn == true) {
     //로그인버튼을 눌렀을때 로그인 상태라면 로그아웃으로 버튼 표기
     document.getElementById("login").innerHTML = "로그아웃";
@@ -38,9 +44,14 @@ btn_open_popup1.addEventListener("click", () => {
   //     document.getElementById("login").innerHTML = "로그아웃";
   //   }
   if (modal.classList.contains("show")) {
+    id_input.innerHTML = id_input.value;
+    if (checkBox.checked == true) {
+      //만약체크가 되있다면 그대로(아이디저장)
+    } else {
+      clearIdPwd(); //false라면 둘다 비워주기
+    }
     //모달창 on상태
     //show가 없다면 더해주고 true리턴
-    clearIdPwd();
     body.style.overflow = "hidden"; //body overflow hidden으로 스크롤 못하게
   }
 });
@@ -101,12 +112,12 @@ loginbtn.addEventListener("click", () => {
 
 checkBox.addEventListener("click", () => {
   if (checkBox.checked === true) {
-    //로그인에 성공했다면
+    // 아이디 저장은 로그인 성공했으면 가능하도록
     console.log("아이디 저장");
-    id_input.innerHTML == id_input.value;
+    id_input.innerHTML = id_input.value; //입력값을 html에 유지
     console.log(id_input.value);
   } else {
     console.log("아이디 저장 안함");
-    clearIdPwd();
+    clearIdPwd(); //html에 모두 클리어
   }
 });
