@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--캐쉬저장 허용-->
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>main</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: 0;
+        color: rgb(95, 50, 50);
+        text-decoration: none;
+      }
+      .modal {
+        /*배경*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .modal.show {
+        display: block;
+      }
+      .modal_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40em;
+        max-width: 40em;
+        max-height: 20em;
+        height: 20em;
+        padding: 40px;
+        text-align: center;
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px rgba(34, 36, 38, 0.15);
+        transform: translateX(-50%) translateY(-100%); /*중앙으로*/
+      }
+      .modal2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .modal2.show {
+        display: block;
+      }
+      #login {
+        margin: 1em;
+        padding: 0.5em;
+        background-color: #7f3811;
+        border: 0.1em solid #e48c32;
+        color: #e8d3bb;
+        width: 8em;
+        border-radius: 1em;
+      }
+      #joinMember {
+        margin: 1em;
+        padding: 0.5em;
+        background-color: #7f3811;
+        border: 0.1em solid #e48c32;
+        color: #e8d3bb;
+        width: 8em;
+        border-radius: 1em;
+      }
+      #wrap {
+        margin: 0 20em 0 24em;
+        margin-top: 50vh;
+        width: 40vw;
+        /* max-width: 30vw; */
+      }
+      #others > a > img {
+        width: 20px;
+      }
+      #loginbtn {
+        height: 3em;
+        width: 17em;
+        background-color: #7f3811;
+        border: 0.1em solid rgb(110, 107, 107);
+        border-radius: 1em;
+        color: #e8d3bb;
+        width: 17em;
+        margin: 0;
+        position: absolute;
+        left: 33%;
+        top: 25%;
+      }
+      #id_input {
+        width: 17em;
+        margin: 0;
+        height: 2em;
+        color: #7f3811;
+        border: 1px solid #7f3811;
+        position: absolute;
+        left: 33%;
+        top: -26%;
+      }
+      #pwd_input {
+        width: 17em;
+        height: 2em;
+        margin: 0;
+        color: #7f3811;
+        border: 1px solid #7f3811;
+        position: absolute;
+        left: 33%;
+        top: -15%;
+      }
+      #ad {
+        transform: translateX(51%) translateY(-65%);
+        /* position: absolute;
+        top: -50%;
+        left: 53%; */
+      }
+      #saveId {
+        position: absolute;
+        left: 33%;
+        top: -3%;
+      }
+      #findPwd {
+        position: absolute;
+        left: 33%;
+        top: 15%;
+      }
+      #findId {
+        position: absolute;
+        left: 33%;
+        top: 6%;
+      }
+      #ad_words {
+        font-family: "Sacramento", cursive;
+        font-size: 2em;
+        /* position: absolute;
+        top: 44%;
+        left: 33%; */
+        transform: translateX(50%) translateY(-35%);
+        width: 7em;
+        color: #7f3811;
+      }
+      #relative_body1 {
+        position: relative;
+      }
+      #relative_body2 {
+        position: relative;
+        margin-top: 30%;
+      }
+      /*회원가입*/
+      #wrap2 {
+        margin: -45vh 20em 0 30em;
+        /* margin-top: 50vh; */
+        width: 30vw;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal">
+      <div id="relative_body1">
+        <div class="modal_body">LOGIN</div>
+
+        <div id="wrap">
+          <input
+            class="fix"
+            id="id_input"
+            type="text"
+            placeholder="아이디 입력"
+          /><br /><br />
+          <input
+            class="fix"
+            id="pwd_input"
+            type="text"
+            placeholder="비밀번호 입력"
+          /><br />
+          <div id="wrap_mini">
+            <div id="saveId"><input type="checkbox" /> 아이디 저장</div>
+            <div id="findPwd"><a href="#">비밀번호 찾기</a></div>
+            <div id="findId"><a href="#">아이디 찾기</a></div>
+          </div>
+          <br />
+          <button id="loginbtn" type="button">로그인</button>
+        </div>
+        <div id="ad">
+          <img src="./imgs/advertisement.png" style="width: 15em" alt="광고" />
+          <div id="ad_words">Become a member for exclusive deals</div>
+        </div>
+      </div>
+    </div>
+
+    <!--회원가입 모달창-->
+    <div class="modal2">
+      <div id="relative_body2">
+        <div class="modal_body">회원가입</div>
+        <div id="wrap2">
+          <div>약관동의</div>
+          <div>
+            <input type="radio" />이용약관 동의 (필수항목)
+            <input type="radio" />개인정보 수집 및 이용 동의 (필수항목)
+            <input type="radio" />환불약관 동의 (필수항목)
+            <input type="radio" />마케팅 활용/수신 동의 (선택)
+            <input type="radio" />문자메시지(SMS) 및 앱/푸시 알림
+            <input type="radio" />이메일
+          </div>
+          <div>필수정보 입력</div>
+          <div>
+            <div>이름 <input type="text" /></div>
+            <div>
+              비밀번호<input
+                type="text"
+                placeholder="영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리"
+              />
+            </div>
+            <div>이메일 <input type="text" />@<input type="text" /></div>
+          </div>
+          <div>
+            <div>
+              아이디
+              <input type="text" placeholder="영문,숫자 4~12자로 입력" /><button
+                type="button"
+              >
+                중복확인
+              </button>
+            </div>
+            <div>
+              비밀번호 확인
+              <input
+                type="text"
+                placeholder="영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리"
+              />
+            </div>
+            <div>휴대폰번호 <input type="text" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn_open_popup1" id="login">로그인</button>
+    <button class="btn_open_popup2" id="joinMember">회원가입</button>
+  </body>
+  <script>
+    const body = document.querySelector("body");
+    const modal = document.querySelector(".modal");
+    const modal2 = document.querySelector(".modal2");
+    const btn_open_popup1 = document.querySelector(".btn_open_popup1");
+    const btn_open_popup2 = document.querySelector(".btn_open_popup2");
+    //로그인 버트 모달창 띄우기
+    btn_open_popup1.addEventListener("click", () => {
+      modal.classList.toggle("show"); //false로 만들어주기
+      //클래스중에서 show가 있다면 강제로 떼버리고 false리턴
+      //show가 없다면 더해주고 true리턴
+      if (modal.classList.contains("show")) {
+        //모달창 on상태
+        //show가 없다면 더해주고 true리턴
+        body.style.overflow = "hidden"; //body overflow hidden으로 스크롤 못하게
+      }
+    });
+    //로그인 화면을 누르면
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        //만약 클릭이벤트가 일어나는게 modal이라면
+        //스크롤 못하게 막기
+        //모달창이 활성화됐다면
+        modal.classList.toggle("show"); //없다면 show붙이고 true , 있다면 떼고 false
+        if (!modal.classList.contains("show")) {
+          body.style.overflow = "auto"; //모달창 off
+        }
+      }
+    });
+    //회원가입 버트 모달창 띄우기
+    btn_open_popup2.addEventListener("click", () => {
+      modal2.classList.toggle("show");
+      if (modal2.classList.contains("show")) {
+        body.style.overflow = "hidden";
+      }
+    });
+    modal2.addEventListener("click", (event) => {
+      if (event.target === modal2) {
+        // class를 이용한 모달 on/off
+        modal2.classList.toggle("show");
+        if (!modal2.classList.contains("show")) {
+          body.style.overflow = "auto";
+        }
+      }
+    });
+
+    /////////////////모달창 나가면 각 영역 비워주기
+  </script>
+</html>
