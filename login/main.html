@@ -19,8 +19,8 @@
       <div id="relative_body1">
         <div class="modal_body">LOGIN</div>
         <div id="wrap">
-          <form action="memberJoin.jsp" method="post">
-            /<!--임의 값-->
+          <form action="memberJoin.jsp" method="post"/>
+            <!--임의 값-->
             <input
               class="fix"
               id="id_input"
@@ -30,7 +30,7 @@
             <input
               class="fix"
               id="pwd_input"
-              type="text"
+              type="password"
               placeholder="비밀번호 입력"
             /><br />
             <div>
@@ -51,49 +51,20 @@
       </div>
     </div>
 
-    <!--회원가입 모달창-->
-    <!-- <div class="modal2">
+    <div class="modal2">
       <div id="relative_body2" style="height: 70vh">
-        <div class="modal_body">회원가입</div>
-        <div id="wrap2">
-          <div>약관동의</div>
-          <div >
-            <input class="agreement" type="radio" />이용약관 동의 (필수항목)
-            <input class="agreement" type="radio" />개인정보 수집 및 이용 동의 (필수항목)
-            <input class="agreement" type="radio" />환불약관 동의 (필수항목)
-            <input class="agreement" type="radio" />마케팅 활용/수신 동의 (선택)
-            <input class="agreement" type="radio" />문자메시지(SMS) 및 앱/푸시 알림
-            <input  class="agreement" type="radio" />이메일
-          </div>
-          <div>필수정보 입력</div>
-          <div>
-            <div>이름 <input type="text" /></div>
-            <div>
-              비밀번호<input
-                type="text"
-                placeholder="영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리"
-              />
-            </div>
-            <div>이메일 <input type="text" />@<input type="text" /></div>
-          </div>
-          <div>
-            <div>
-              아이디
-              <input type="text" placeholder="영문,숫자 4~12자로 입력" /><button
-                type="button"
-              >
-                중복확인
-              </button>
-            </div>
-            <div>
-              비밀번호 확인
-              <input
-                type="text"
-                placeholder="영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리"
-              />
-            </div>
-            <div>휴대폰번호 <input type="text" /></div>
-          </div>
+        <div class="modal_body">
+          약관동의
+          <div id="terms_condi"></div>
+        </div>
+      </div>
+    </div>
+    <!--주소입력 모달창 만들어주기+++++++++++++++++++++++++++-->
+    <!-- <div class="modal3">
+      <div id="relative_body3" style="height: 70vh">
+        <div class="modal_body3">
+          주소검색
+          <div id="terms_condi"></div>
         </div>
       </div>
     </div> -->
@@ -110,58 +81,79 @@
       <div id>
         <div class="left"><h2>약관동의</h2></div>
         <div id="wrap_mini">
-          <div>
-            <input type="checkbox" class="agreement" />이용약관 동의 (필수항목)
+          <div class="must">
+            <input id="nesschk1" type="checkbox" class="agreement" />이용약관
+            동의 (필수항목)
           </div>
-          <div>
-            <input type="checkbox" class="agreement" />개인정보 수집 및 이용
+          <div class="must">
+            <input id="nesschk2" type="checkbox" class="agreement" />개인정보
+            수집 및 이용 동의 (필수항목)
+          </div>
+          <div class="must">
+            <input id="nesschk3" type="checkbox" class="agreement" />환불약관
             동의 (필수항목)
           </div>
           <div>
-            <input type="checkbox" class="agreement" />환불약관 동의 (필수항목)
+            <input id="optchk1" type="checkbox" class="agreement" />마케팅
+            활용/수신 동의 (선택)
           </div>
           <div>
-            <input type="checkbox" class="agreement" />마케팅 활용/수신 동의
-            (선택)
+            <input
+              id="optchk2"
+              type="checkbox"
+              class="agreement"
+            />문자메시지(SMS) 및 앱/푸시 알림
           </div>
           <div>
-            <input type="checkbox" class="agreement" />문자메시지(SMS) 및
-            앱/푸시 알림
+            <input id="optchk3" type="checkbox" class="agreement" />이메일
           </div>
-          <div><input type="checkbox" class="agreement" />이메일</div>
         </div>
         <div class="left"><h2>필수정보 입력</h2></div>
         <div class="left" id="wrap_mini2">
-          <div class="agreeQ" id="name">이름 <input type="text" /></div>
+          <div class="agreeQ" id="nameMember">이름 <input type="text" /></div>
           <div class="agreeQ">
-            이메일 <input type="text" />@<input type="text" />
+            이메일 <input type="text" id="emailFront" />@<input
+              type="text"
+              id="emailBack"
+            />
           </div>
           <div class="agreeQ">
             아이디
-            <input type="text" placeholder="영문,숫자 4~12자로 입력" />
+            <input
+              id="idJoin"
+              type="text"
+              placeholder="영문시작,숫자포함 5~12자"
+            />
+            <!--^[a-z]+[a-z0-9]{4,11}$-->
             <button type="button" id="RptChkBtn">중복확인</button>
+            <div class="agreeQ" id="qualify1">
+              <!-- 영문으로 시작하여, 영문숫자포함 5~12자 -->
+            </div>
           </div>
           <div class="agreeQ">
-            비밀번호 <input type="text" placeholder="아이디 입력" />
+            비밀번호
+            <input type="password" id="pwdJoin" placeholder="비밀번호 입력" />
           </div>
-          <div class="agreeQ" id="qualify">
-            영문 대소문자,숫자,특수문자[~,!,@,#,%,&] 조합 8~15자리
+          <div class="agreeQ" id="qualify2">
+            영문 대소문자,숫자,특수문자[!,@,#,%,&,?] 조합 8~15자리
           </div>
           <!--비밀번호 input focus 되면 색바꾸기-->
           <div class="agreeQ">
             비밀번호 확인
-            <input type="text" placeholder="비밀번호 입력" />
+            <input type="password" id="repeatPwd" placeholder="비밀번호 입력" />
           </div>
-          <div class="agreeQ">휴대폰번호 <input type="text" /></div>
+          <div class="agreeQ">
+            휴대폰번호 <input type="text" id="phoneJoin" />
+          </div>
         </div>
       </div>
 
       <div class="left"><h2>부가정보 입력 (선택)</h2></div>
       <div class="left" id="wrap_mini2">
-        <div class="agreeQ" id="dob">
-          생년월일 <input type="text" placeholder="년" />
-          <input type="text" placeholder="월" />
-          <input type="text" placeholder="일" />
+        <div class="agreeQ">
+          생년월일 <input type="text" class="dob" placeholder="년" />
+          <input class="dob" type="text" placeholder="월" />
+          <input class="dob" type="text" placeholder="일" />
         </div>
         <div class="agreeQ">
           주소 <input type="text" placeholder="우편번호" />
