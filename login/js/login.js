@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const modal2 = document.querySelector(".modal2");
+const modal3 = document.querySelector(".modal3");
 const btn_open_popup1 = document.querySelector(".btn_open_popup1");
 const btn_open_popup2 = document.querySelector(".btn_open_popup2");
 const id_input = document.getElementById("id_input");
@@ -22,9 +23,20 @@ const emailBack = document.getElementById("emailBack");
 const RptChkBtn = document.querySelector("#RptChkBtn");
 const idJoin = document.getElementById("idJoin");
 const pwdJoin = document.getElementById("pwdJoin");
+const searchAddr = document.getElementById("searchAddr");
 const phoneJoin = document.getElementById("phoneJoin");
 const confirmBtn = document.getElementById("confirmBtn");
 
+//약관 모달창 닫아주기 버튼
+const leaveIcon = document.getElementsByTagName("i")[0];
+const leaveIcon2 = document.getElementsByTagName("i")[1];
+const leaveModal = document.getElementById("leaveModal");
+const leaveModal2 = document.getElementById("leaveModal2");
+
+const mapShow = document.getElementById("mapShow");
+const postNum = document.getElementById("postNum"); //우편번호
+const addr = document.getElementById("addr"); //주소
+const addrAll = document.getElementById("addrAll"); //상세주소
 //아이디 비워주기//비밀번호 비워주기
 function clearIdPwd() {
   id_input.value = "";
@@ -90,13 +102,58 @@ modal2.addEventListener("click", (event) => {
     }
   }
 });
-//약관 모달창 닫아주기 버튼
-const leaveIcon = document.getElementsByTagName("i")[0];
-const leaveModal = document.getElementById("leaveModal");
-//버튼 클릭하면 나가기 기능
+
+//주소검색버튼 클릭할 떄 모달창 띄워주기
+searchAddr.addEventListener("click", () => {
+  modal3.classList.toggle("show");
+  //주소검색 모달창
+
+  function modalSearchLocation() {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        var addr2 = ""; //도로명 or지번 담을 변수
+        if (data.userSelectedType === "R") {
+          //도로명주소 선택
+          addr2 = data.roadAddress;
+        } else {
+          //지번주소
+          addr2 = data.jibunAddress;
+        }
+
+        postNum.value = data.zonecode; //우편번호 담기
+        addr.value = addr2; //도로명, 지번 담기
+        //다담았다면 모달창 닫아주기
+        modal3.classList.toggle("show");
+        //상세 주소 focus
+        addrAll.focus();
+      },
+      onresize: function (size) {
+        mapShow.style.height = size.height + "px";
+      },
+      width: "100%",
+      height: "100%",
+    }).embed(mapShow);
+    mapShow.style.display = "block";
+  }
+  modalSearchLocation();
+  if (!modal3.classList.contains("show")) {
+    body.style.overflow = "auto";
+  }
+});
+
+//X 버튼 클릭하면 나가기 기능 (이용약관)
 leaveModal.addEventListener("click", () => {
   modal2.classList.toggle("show");
   if (!modal2.classList.contains("show")) {
+    body.style.overflow = "auto";
+  }
+});
+
+//X 버튼 클릭하면 나가기 기능 (주소검색)
+leaveModal2.addEventListener("click", () => {
+  modal3.classList.toggle("show");
+
+  if (!modal3.classList.contains("show")) {
     body.style.overflow = "auto";
   }
 });
@@ -106,6 +163,12 @@ leaveModal.addEventListener("mouseover", () => {
 });
 leaveModal.addEventListener("mouseleave", () => {
   leaveIcon.style.color = "#7f3811";
+});
+leaveModal2.addEventListener("mouseover", () => {
+  leaveIcon2.style.color = "#e48c32";
+});
+leaveModal2.addEventListener("mouseleave", () => {
+  leaveIcon2.style.color = "#7f3811";
 });
 
 //로그인 시도할 때 발생 이벤트
@@ -151,10 +214,6 @@ nesschk1.addEventListener("click", () => {
   if (nesschk1.checked === true) {
     console.log("동의");
     modal2.classList.toggle("show");
-    if (modal2.classList.contains("show")) {
-      //모달창 활성화시 스크롤 방지
-      body.style.overflow = "hidden";
-    }
     terms_condi.innerHTML =
       "제1조(목적) 이 약관은 회사가 온라인으로 제공하는 디지털콘텐츠(이하 '콘텐츠'라고 한다) 및 제반서비스의 이용과 관련하여 회사와 이용자와의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다. 제3조(신원정보 등의 제공) '회사'는 이 약관의 내용, 상호, 대표자 성명, 영업소 소재지 주소(소비자의 불만을 처리할 수 있는 곳의 주소를 포함), 전화번호, 모사전송번호, 전자우편주소, 사업자등록번호, 통신판매업 신고번호 및 개인정보관리책임자 등을 이용자가 쉽게 알 수 있도록 온라인 서비스초기화면에 게시합니다. 다만, 약관은 이용자가 연결화면을 통하여 볼 수 있도록 할 수 있습니다.";
   }
@@ -163,10 +222,6 @@ nesschk2.addEventListener("click", () => {
   if (nesschk2.checked === true) {
     console.log("동의");
     modal2.classList.toggle("show");
-    if (modal2.classList.contains("show")) {
-      //모달창 활성화시 스크롤 방지
-      body.style.overflow = "hidden";
-    }
     terms_condi.innerHTML =
       "제7조(회원가입) ① 회원가입은 '이용자'가 약관의 내용에 대하여 동의를 하고 회원가입신청을 한 후 '회사'가 이러한 신청에 대하여 승낙함으로써 체결됩니다. ② 회원가입신청서에는 다음 사항을 기재해야 합니다. 1호 내지 3호의 사항은 필수사항이며, 그 외의 사항은 선택사항입니다. 1. '회원'의 성명과 주민등록번호 또는 인터넷상 개인식별번호 2. '아이디'와 '비밀번호' 3. 전자우편주소  4. 이용하려는 '콘텐츠'의 종류 5. 기타 '회사'가 필요하다고 인정하는 사항 ③ '회사'는 상기 '이용자'의 신청에 대하여 회원가입을 승낙함을 원칙으로 합니다. 다만, '회사'는 다음 각 호에 해당하는 신청에 대하여는 승낙을 하지 않을 수 있습니다. 1. 가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는 경우       2. 실명이 아니거나 타인의 명의를 이용한 경우 3. 허위의 정보를 기재하거나, 회사가 제시하는 내용을 기재하지 않은 경우 4. 이용자의 귀책사유로 인하여 승인이 불가능하거나 기타 규정한 제반 사항을 위반하며 신청하는 경우 ④ '회사'는 서비스 관련 설비의 여유가 없거나, 기술상 또는 업무상 문제가 있는 경우에는 승낙을 유보할 수 있습니다. ";
   }
@@ -175,22 +230,15 @@ nesschk3.addEventListener("click", () => {
   if (nesschk3.checked === true) {
     console.log("동의");
     modal2.classList.toggle("show");
-    if (modal2.classList.contains("show")) {
-      //모달창 활성화시 스크롤 방지
-      body.style.overflow = "hidden";
-    }
     terms_condi.innerHTML =
       " 제29조(회사의 계약해제·해지의 효과) '이용자'의 귀책사유에 따른 이용계약의 해제·해지의 효과는 제27조를 준용합니다. 다만, '회사'는 '이용자'에 대하여 계약해제·해지의 의사표시를 한 날로부터 7영업일 이내에 대금의 결제와 동일한 방법으로 이를 환급합니다. 제30조(과오금)   ① '회사'는 과오금이 발생한 경우 이용대금의 결제와 동일한 방법으로 과오금 전액을 환불하여야 합니다. 다만, 동일한 방법으로 환불이 불가능할 때는 이를 사전에 고지합니다.② '회사'의 책임 있는 사유로 과오금이 발생한 경우 '회사'는 계약비용, 수수료 등에 관계없이 과오금 전액을 환불합니다. 다만, '이용자'의 책임 있는 사유로 과오금이 발생한 경우, '회사'가 과오금을 환불하는 데 소요되는 비용은 합리적인 범위 내에서 '이용자'가 부담하여야 합니다. ③ 회사는 '이용자'가 주장하는 과오금에 대해 환불을 거부할 경우에 정당하게 이용대금이 부과되었음을 입증할 책임을 집니다. ④ '회사는 과오금의 환불절차를 디지털콘텐츠이용자보호지침에 따라 처리합니다.";
   }
 });
+//마케팅 수신 동의 모달창
 optchk1.addEventListener("click", () => {
   if (optchk1.checked === true) {
     console.log("동의");
     modal2.classList.toggle("show");
-    if (modal2.classList.contains("show")) {
-      //모달창 활성화시 스크롤 방지
-      body.style.overflow = "hidden";
-    }
     terms_condi.innerHTML =
       " 제16조(수신확인통지·이용신청 변경 및 취소)   ① '회사'는 '이용자'의 이용신청이 있는 경우 '이용자'에게 수신확인통지를 합니다.  ② 수신확인통지를 받은 '이용자'는 의사표시의 불일치 등이 있는 경우에는 수신확인통지를 받은 후 즉시 이용신청 변경 및 취소를 요청할 수 있고, '회사'는 서비스제공 전에 '이용자'의 요청이 있는 경우에는 지체 없이 그 요청에 따라 처리하여야 합니다. 다만, 이미 대금을 지불한 경우에는 청약철회 등에 관한 제27조의 규정에 따릅니다.제22조(정보의 제공 및 광고의 게재)   ① '회사'는 '이용자'가 콘텐츠이용 중 필요하다고 인정되는 다양한 정보를 공지사항이나 전자우편 등의 방법으로 '회원'에게 제공할 수 있습니다. 다만, '회원'은 언제든지 전자우편 등을 통하여 수신 거절을 할 수 있습니다. ② 제1항의 정보를 전화 및 모사전송기기에 의하여 전송하려고 하는 경우에는 '회원'의 사전 동의를 받아서 전송합니다.  ③ '회사'는 '콘텐츠'서비스 제공과 관련하여 콘텐츠화면, 홈페이지, 전자우편 등에 광고를 게재할 수 있습니다. 광고가 게재된 전자우편 등을 수신한 '회원'은 수신거절을 '회사'에게 할 수 있습니다.  ";
   }
@@ -211,6 +259,7 @@ optchk3.addEventListener("click", () => {
     }
   }
 });
+
 //중복 아이디 확인
 RptChkBtn.addEventListener("click", () => {
   //   console.log(idJoin.value);
@@ -276,8 +325,6 @@ confirmBtn.addEventListener("click", () => {
     alert("출생일을 잘못입력하셨습니다.");
     dobDate.focus();
   }
-
-  //////////////////////////////////////////////////////주소검색 모달창 기능만들기++++++++++
 
   //정규표현식이 요구된 거는 통과하면 가입가능
 

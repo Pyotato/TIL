@@ -45,9 +45,31 @@
   display: none;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.modal3 {
+  /*배경*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 206vh;
+  max-height: 206vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .modal2.show {
   display: block;
   z-index: 100;
+}
+.modal3.show {
+  display: block;
+  z-index: 100;
+}
+#mapShow {
+  display: none;
+  border: 1px solid;
+  width: 500px;
+  height: 300px;
+  position: relative;
 }
 #modal_buttons {
   width: 100vw;
@@ -148,9 +170,13 @@
 }
 #relative_body2 {
   position: relative;
-  margin-top: 20%;
-  /* max-width: 10vw; */
+  margin-top: 30%;
 }
+#relative_body3 {
+  position: relative;
+  margin-top: 50%;
+}
+
 /*회원가입*/
 #wrap2 {
   margin: 0 20em 10vh 30em;
@@ -218,6 +244,14 @@
   border-radius: 1em;
   color: #e8d3bb;
 }
+#searchAddr {
+  height: 2em;
+  width: 7em;
+  background-color: #7f3811;
+  border: 0.1em solid rgb(110, 107, 107);
+  border-radius: 1em;
+  color: #e8d3bb;
+}
 #addr {
   margin-left: 3em;
 }
@@ -249,6 +283,10 @@ i {
   color: #7f3811;
 }
 #leaveModal {
+  margin-left: 40vw;
+  margin-bottom: 1em;
+}
+#leaveModal2 {
   margin-left: 40vw;
   margin-bottom: 1em;
 }
