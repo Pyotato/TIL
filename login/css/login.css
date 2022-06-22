@@ -33,13 +33,15 @@
   border-radius: 10px;
   box-shadow: 0 2px 3px rgba(34, 36, 38, 0.15);
   transform: translateX(-50%) translateY(-100%); /*중앙으로*/
+  overflow: hidden;
 }
 .modal2 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 202vh;
+  max-height: 202vh;
   display: none;
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -163,7 +165,7 @@
 #joinMwrap {
   background-color: #f7faec;
   width: 50vw;
-  height: 65em;
+  height: 68em;
   text-align: center;
   margin: 3em 0;
   margin-left: 50%;
@@ -200,7 +202,11 @@
   /* width: 10em; */
   margin-top: 1em;
 }
-#qualify {
+#qualify1 {
+  font-size: 15px;
+  color: #e48c32;
+}
+#qualify2 {
   font-size: 15px;
   color: #e48c32;
 }
@@ -237,4 +243,12 @@ h1 {
 }
 h2 {
   color: #e48c32;
+}
+i {
+  font-size: 2em;
+  color: #7f3811;
+}
+#leaveModal {
+  margin-left: 40vw;
+  margin-bottom: 1em;
 }
