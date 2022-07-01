@@ -2,7 +2,7 @@
 
 리포지터리를 클론한 후 이클립스를 실핼하려는 도중
 
-![자바 오류 이미지](/TIL/TIL.assets/image-20220611003844481.png)
+![자바 오류 이미지](/TIL/How-to/How-to-fix-404.assets/image-20220619132616363.png)
 
 `The selection cannot be launched, and there are no recent launches.`
 
