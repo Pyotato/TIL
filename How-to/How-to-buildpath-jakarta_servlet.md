@@ -27,7 +27,7 @@
 
 - 에러난 project 우클릭 ➡️ Build Path ➡️ Configure Build Path
 
-![프로젝트>buildpath>configureBuildPath](How-to-buildpath-jakarta_servlet.assets/image-20220701173817562.png)
+![프로젝트_buildpath_configure_BuildPath](How-to-buildpath-jakarta_servlet.assets/image-20220701173817562.png)
 
 - Java Build Path ➡️ Libraries ➡️ Modulepath ➡️ Add library ➡️ ServerRuntime ➡️ Next
 
@@ -46,4 +46,4 @@
 - 이렇게 해줘도 오류가 발생하는 경우가 간혹 있다고 했는데 위의 과정에 추가했던 거를 삭제하고 반복해도 오류가 난다면
 - 단순히 이클립스가 인식을 안해줘서 그런거라서 잠깐 스페이스바를 눌러 주고 저장을 하면 해결!
 
-![spacebar after <%@](How-to-buildpath-jakarta_servlet.assets/image-20220701175306540.png)
+![spacebar_after_<%@](How-to-buildpath-jakarta_servlet.assets/image-20220701175306540.png)
