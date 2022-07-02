@@ -31,7 +31,7 @@
 
 - Java Build Path ➡️ Libraries ➡️ Modulepath ➡️ Add library ➡️ ServerRuntime ➡️ Next
 
-![해결방법](How-to-buildpath-jakarta_servlet.assets/화면 캡처 2022-07-01 173122.png)
+![해결방법](How-to-buildpath-jakarta_servlet.assets/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022-07-01%20173122.png)
 
 - Apache Tomcat v9.0 (자신이 다운 받은 버젼) 클릭 ➡️ Finish ➡️ Apply and Close
 
