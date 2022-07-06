@@ -4,12 +4,12 @@
 
 - 해결방법은 생각보다 간단했음!
 
-![image-20220706160206626](/TIL/How-to/How-to-solve-taglibs-error.assets/image-20220706154943710.png)
+![error_image](How-to-solve-taglibs-error.assets/image-20220706154943710.png)
 
 - [해결법](https://aljjabaegi.tistory.com/187)
 - 작업중인 프로젝트 우클릭 ➡️Properties➡️Project Facets➡️Runtimes➡️Apache Tomcat v9.0➡️Apply and Close
 
-![image-20220706155208959](/TIL/How-to/How-to-solve-taglibs-error.assets/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022-07-06%20162316.png)
+![solution_image](How-to-solve-taglibs-error.assets/화면 캡처 2022-07-06 162316-16570926260352.png)
 
 - 해결!
 
