@@ -9,7 +9,7 @@
 - [해결법](https://aljjabaegi.tistory.com/187)
 - 작업중인 프로젝트 우클릭 ➡️Properties➡️Project Facets➡️Runtimes➡️Apache Tomcat v9.0➡️Apply and Close
 
-![solution_image](How-to-solve-taglibs-error.assets/화면 캡처 2022-07-06 162316-16570926260352.png)
+![solution_image](How-to-solve-taglibs-error.assets/화면 캡처 2022-07-06 162316.png)
 
 - 해결!
 
