@@ -1,4 +1,4 @@
-# HOW TO SOLVE jakarta.servlet error
+# 📋 HOW TO SOLVE jakarta.servlet error
 
 ### The superclass "jakarta.servlet.http.HttpServlet" was not found on the Java Build Path
 
