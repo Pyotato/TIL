@@ -3,6 +3,7 @@
 리포지터리를 클론한 후 이클립스를 실핼하려는 도중
 
 ![자바 오류 이미지](How_to_solve_UnableToLaunch_Java.assets/image-20220611003844481.png)
+
 `The selection cannot be launched, and there are no recent launches.`
 
 오류 발생.
