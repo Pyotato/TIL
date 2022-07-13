@@ -34,6 +34,7 @@
 - [[jsp] taglib에러 : javax.servlet.jsp.JspException cannot be resolved to a type](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-solve-taglibs-error.md)
 - [[rest-api] Missing URI template variable for method parameter of type String](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-solve-missing-URI-template-variable-for-method-parameter-of-type-String.md)
 - [[자바] Java compiler level does not match the version of installed Java project facet](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-change-Java-compiler-version.md)
+- [[설치] How to fix Error 0x80010135](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-fix-Error-0x80010135.md)
 
 ### React Study
 
