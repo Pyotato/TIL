@@ -35,6 +35,7 @@
 - [[rest-api] Missing URI template variable for method parameter of type String](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-solve-missing-URI-template-variable-for-method-parameter-of-type-String.md)
 - [[자바] Java compiler level does not match the version of installed Java project facet](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-change-Java-compiler-version.md)
 - [[설치] How to fix Error 0x80010135](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-fix-Error-0x80010135.md)
+- [[환경변수] How to fix Error Not Recognized as an Internal or External Command](https://github.com/Pyotato/TIL/blob/master/How-to/How-to-solve-not-recognized-as-an-internal-or-external-command-error.md)
 
 ### React Study
 
